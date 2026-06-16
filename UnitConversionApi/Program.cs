@@ -31,4 +31,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/", () => "Welcome to the Unit Conversion API! Navigate to /swagger to view the documentation.");
+
 app.Run();
