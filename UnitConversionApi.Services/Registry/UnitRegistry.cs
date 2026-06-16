@@ -29,6 +29,7 @@ public class UnitRegistry : IUnitRegistry
         {
             PropertyNameCaseInsensitive = true
         };
+        options.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 
         var root = JsonSerializer.Deserialize<UnitRoot>(json, options);
         
