@@ -97,18 +97,22 @@ GET /api/v1/conversion/units
 
 ## Adding New Units
 
-Due to the architectural design, adding a new unit is simple. You only need to define its conversion to and from the **Base Unit** of its category.
+Due to the new data-driven architectural design, adding a new unit is simple and requires **no C# code changes**. You only need to add its definition to the `src/UnitConversionApi.Services/units.json` file.
 
-For example, to add `Nautical Miles` (Category: Length, Base Unit: Meter), you only need to add one line to the `InitializeUnits` method in `UnitRegistry.cs`:
+Each unit defines its conversion to and from the **Base Unit** of its category using a mathematical Offset and Multiplier approach:
+- `ToBase = (Value + BaseOffset) * BaseMultiplier`
+- `FromBase = (Value / BaseMultiplier) - BaseOffset`
 
-```csharp
-AddUnit(new UnitDefinition { 
-    Name = "Nautical Mile", 
-    Symbol = "nmi", 
-    Category = UnitCategory.Length, 
-    ToBase = x => x * 1852, 
-    FromBase = x => x / 1852 
-});
+For example, to add `Nautical Miles` (Category: Length, Base Unit: Meter), you only need to append this JSON object to the file:
+
+```json
+{
+  "name": "Nautical Mile",
+  "symbol": "nmi",
+  "category": "Length",
+  "baseOffset": 0.0,
+  "baseMultiplier": 1852.0
+}
 ```
 
-The `ConversionService` will automatically be able to convert Nautical Miles to and from any other length unit!
+The `ConversionService` will automatically parse this on startup and be able to convert Nautical Miles to and from any other length unit!
