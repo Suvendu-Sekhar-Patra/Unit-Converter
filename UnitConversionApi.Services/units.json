@@ -1,0 +1,116 @@
+{
+  "units": [
+    {
+      "name": "Meter",
+      "symbol": "m",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 1.0
+    },
+    {
+      "name": "Kilometer",
+      "symbol": "km",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 1000.0
+    },
+    {
+      "name": "Centimeter",
+      "symbol": "cm",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.01
+    },
+    {
+      "name": "Millimeter",
+      "symbol": "mm",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.001
+    },
+    {
+      "name": "Mile",
+      "symbol": "mi",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 1609.344
+    },
+    {
+      "name": "Yard",
+      "symbol": "yd",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.9144
+    },
+    {
+      "name": "Foot",
+      "symbol": "ft",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.3048
+    },
+    {
+      "name": "Inch",
+      "symbol": "in",
+      "category": "Length",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.0254
+    },
+    {
+      "name": "Kilogram",
+      "symbol": "kg",
+      "category": "Mass",
+      "baseOffset": 0.0,
+      "baseMultiplier": 1.0
+    },
+    {
+      "name": "Gram",
+      "symbol": "g",
+      "category": "Mass",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.001
+    },
+    {
+      "name": "Milligram",
+      "symbol": "mg",
+      "category": "Mass",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.000001
+    },
+    {
+      "name": "Pound",
+      "symbol": "lb",
+      "category": "Mass",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.45359237
+    },
+    {
+      "name": "Ounce",
+      "symbol": "oz",
+      "category": "Mass",
+      "baseOffset": 0.0,
+      "baseMultiplier": 0.02834952
+    },
+    {
+      "name": "Celsius",
+      "symbol": "c",
+      "category": "Temperature",
+      "baseOffset": 0.0,
+      "baseMultiplier": 1.0
+    },
+    {
+      "name": "Fahrenheit",
+      "symbol": "f",
+      "category": "Temperature",
+      "baseOffset": -32.0,
+      "baseMultiplier": 0.5555555555555556
+    },
+    {
+      "name": "Kelvin",
+      "symbol": "k",
+      "category": "Temperature",
+      "baseOffset": -273.15,
+      "baseMultiplier": 1.0
+    }
+  ]
+}
