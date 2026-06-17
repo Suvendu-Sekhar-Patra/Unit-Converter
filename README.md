@@ -22,9 +22,9 @@ The project is structured into three main layers to separate concerns cleanly:
    cd UnitConversionApi
    ```
 
-2. Run the application:
+2. Run & watch the application:
    ```bash
-   dotnet run
+   dotnet watch run
    ```
 
 3. The API will start on a local port (usually `http://localhost:5147` or `https://localhost:7147`).
