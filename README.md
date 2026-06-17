@@ -12,8 +12,15 @@ This project is an ASP.NET Core Web API for converting numerical values between 
 The project is structured into three main layers to separate concerns cleanly:
 
 - **`UnitConversionApi.Core`**: Contains domain models (`UnitDefinition`, `UnitCategory`), interfaces (`IUnitRegistry`, `IConversionService`), and custom exceptions.
-- **`UnitConversionApi.Services`**: Implements the business logic. It contains the `UnitRegistry` (which hardcodes the currently supported units) and the `ConversionService`.
+- **`UnitConversionApi.Services`**: Implements the business logic. It contains the `UnitRegistry` (which dynamically loads supported units from a `units.json` file) and the `ConversionService`.
 - **`UnitConversionApi`**: The ASP.NET Core Web API that contains the `ConversionController` and a global exception handler.
+
+## Design Decisions & Trade-offs
+
+- **Data-Driven Architecture (JSON vs Hardcoded)**: Instead of hardcoding conversion formulas in C# using functions, the API calculates conversions using an `Offset` and `Multiplier` formula loaded from a JSON file. This allows non-developers to configure new units without recompiling the API, ensuring massive scalability.
+- **Base Unit Conversion Pattern**: Rather than defining $N \times (N-1)$ conversion pairs, the API uses a "Base Unit" for each category (e.g., Meters for Length). It converts the source unit into the base unit, and then from the base unit to the target unit. This turns an $O(N^2)$ maintenance problem into $O(N)$.
+- **GET vs POST**: The `/convert` endpoint uses a `GET` request. Since conversions are safe, idempotent, and don't modify server state, `GET` enables aggressive caching at the browser and CDN levels.
+- **Flat vs Wrapped Responses**: Success responses use flat, clean JSON objects matching the DTOs, while errors are securely caught by a global middleware to return standard `400 Bad Request` models without leaking stack traces.
 
 ## How to Run Locally
 
